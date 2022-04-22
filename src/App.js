@@ -1,26 +1,21 @@
 /** @format */
-
-import logo from "./logo.svg";
 import "./App.css";
 import Slider from "@mui/material/Slider";
 import { useEffect, useState } from "react";
-import { padding } from "@mui/system";
 import MuiInput from "@mui/material/Input";
 import { styled } from "@mui/material/styles";
 
 const Input = styled(MuiInput)`
   width: 100px;
 `;
-function valuetext(value) {
-  return `${value}°C`;
-}
 
 function App() {
   const [value, setValue] = useState(1);
   const [price, setPrice] = useState(20000);
   const [cal, setCal] = useState(0);
   useEffect(() => {
-    setCal(value * (price + 2000));
+    let rev = (4 * price) / 100;
+    setCal(value * (rev + 2000));
   }, [value, price]);
 
   const handleChange = (e) => {
